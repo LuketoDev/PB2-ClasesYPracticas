@@ -7,6 +7,7 @@ public class Vehiculo {
 
 	private String pantente; // String porque puede tener letras
 	private Integer pesoMaximo; // en kg
+	private Integer pesoActual;
 	private Integer capacidadMaximaDePasajeros;
 	private List<Pasajero> pasajeros;
 
@@ -14,8 +15,10 @@ public class Vehiculo {
 		// TODO Auto-generated constructor stub
 		this.pantente = patente;
 		this.pesoMaximo = pesoMaximo;
+		this.pesoActual = 0;
 		this.capacidadMaximaDePasajeros = capacidadMaximaDePasajeros;
 		this.pasajeros = new ArrayList<>();
+		
 	}
 
 	public String getPatente() {
@@ -37,7 +40,7 @@ public class Vehiculo {
 		
 		for (Pasajero pasajero : pasajerosASubir) {
 			
-			this.pasajeros.add(pasajero);
+			this.cargarPasajero(pasajero);
 			
 		}
 		
@@ -51,6 +54,16 @@ public class Vehiculo {
 		// TODO Auto-generated method stub
 		return this.pasajeros;
 	}
+
+	public Integer getPesoActual() {
+		return pesoActual;
+	}
+
+	public void setPesoActual(Integer pesoActual) {
+		this.pesoActual = pesoActual;
+	}
+	
+	
 
 	
 
