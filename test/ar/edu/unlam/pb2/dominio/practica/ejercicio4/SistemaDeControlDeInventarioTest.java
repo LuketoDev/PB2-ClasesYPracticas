@@ -60,6 +60,32 @@ public class SistemaDeControlDeInventarioTest {
 	}
 	
 	@Test
+	public void dadoQueExisteUnProductoNoPerecederoConPrecioUnitarioInicialDe0Con1Y200DeCantidadCuandoPreguntoPorSuPrecioUnitarioAEsteSeLeAplica7PorcientoDeAgregadoEntoncesElPrecioUnitarioFinalEsDe21con40() {
+		
+		//Preparacion
+		
+		String nombre = "CajaDeTornillos";
+		Integer cantidad = 200;
+		Double precioUnitario = 0.1D;
+		String garantia = "6 meses";
+		
+		Producto productoNoPerecedero = new ProductoNoPerecedero(nombre, cantidad, precioUnitario, garantia);
+		
+		// Ejecucion
+		
+		Double precioUnitarioFinalObtenido = productoNoPerecedero.obtenerPrecio();
+		
+		// Verificacion
+		
+		Double precioUnitarioFinalEsperado = 21.40D;
+		
+		Double epsilon = 0.0001D;  // Margen de error permitido
+		
+		assertEquals(precioUnitarioFinalEsperado, precioUnitarioFinalObtenido, epsilon);
+		
+	}
+	
+	@Test
 	public void dadoQueExisteUnaTiendaConProductosCuandoIntentoAgregarUnProductoALaListaEntoncesLoAgrega() {
 	
 		// Preparacion
