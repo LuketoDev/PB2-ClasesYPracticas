@@ -15,6 +15,7 @@ public class ProductoPerecedero extends Producto {
 	
 	@Override
 	public Double obtenerPrecio() {
+		
 		return (this.getPrecioUnitario() + (this.getPrecioUnitario() * PORCENTAJE_DE_AGREGADO_PERECEDERO / 100)) * this.getCantidad();
 	}
 	

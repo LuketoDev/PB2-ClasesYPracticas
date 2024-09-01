@@ -17,5 +17,6 @@ public class ProductoNoPerecedero extends Producto {
 	public Double obtenerPrecio() {
 		return (this.getPrecioUnitario() + (this.getPrecioUnitario() * PORCENTAJE_DE_AGREGADO_NO_PERECEDERO / 100)) * this.getCantidad();
 	}
+	
 
 }
