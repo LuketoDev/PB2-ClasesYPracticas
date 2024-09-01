@@ -14,4 +14,8 @@
   
 ## Ejercicios
 * Gestión de universidad.
+* Sistema de transporte
+* Sistema de facturacion para Productos
+* Sistema de pago en linea
+* Sistema de control de inventario
 >>>>>>> bcdfea2cc85cccc2cac8aa8d7e1006572f16e6d2
