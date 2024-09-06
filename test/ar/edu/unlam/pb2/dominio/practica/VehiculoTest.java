@@ -4,10 +4,60 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import org.junit.Before;
 import org.junit.Test;
 
 
 public class VehiculoTest {
+	
+	private static final Integer VELOCIDAD_MAXIMA_AUTO = 100;
+	private static final Integer VELOCIDAD_MAXIMA_AVION = 1000;
+	private static final Integer VELOCIDAD_MAXIMA_MOTO_DE_AGUA = 10;
+
+	private static final Integer VELOCIDAD_DE_VEHICULO_QUIETO = 0;
+	
+	private Integer velocidadActual;
+	private String modelo;
+	private String color;
+	private Integer velocidadMaxima;
+	
+	private Vehiculo auto;
+	private Vehiculo avion;
+	private Vehiculo motoDeAgua;
+	
+	
+	@Before
+	public void init() {
+		
+		// valores genericos para los atributos en comun de los vehiculos
+		
+		this.modelo = "1";
+		this.color = "rojo";
+		
+		// init del auto
+		
+		this.velocidadActual = VELOCIDAD_DE_VEHICULO_QUIETO;
+		this.velocidadMaxima = VELOCIDAD_MAXIMA_AUTO;
+		
+		this.auto = new Auto(velocidadActual, modelo, color, velocidadMaxima);
+		
+		// init del avion
+		
+		this.velocidadActual = VELOCIDAD_DE_VEHICULO_QUIETO;
+		this.velocidadMaxima = VELOCIDAD_MAXIMA_AVION;
+		
+		this.avion = new Avion(velocidadActual, modelo, color, velocidadMaxima);
+		
+		// init de la motoDeAgua
+		
+		this.velocidadActual = VELOCIDAD_DE_VEHICULO_QUIETO;
+		this.velocidadMaxima = VELOCIDAD_MAXIMA_MOTO_DE_AGUA;
+				
+		this.motoDeAgua = new MotoDeAgua(velocidadActual, modelo, color, velocidadMaxima);
+		
+		
+		
+	}
 	
 	// Auto
 	
@@ -16,12 +66,7 @@ public class VehiculoTest {
 		
 		// Preparacion
 		
-		Integer velocidadActualDelAuto = 0;
-		String modelo = "1"; 
-		String color = "rojo";
-		Integer velocidadMaxima = 100;
-		
-		Auto auto = new Auto(velocidadActualDelAuto, modelo, color, velocidadMaxima);
+		// echa en el init();
 		
 		// Ejecucion
 
@@ -37,13 +82,6 @@ public class VehiculoTest {
 	public void dadoQueExisteUnVehiculoQueEsUnAutoCuandoLePidoAcelerarEntoncesSuVelocidadAumentaA10() {
 		
 		// Preparacion
-		
-		Integer velocidadActualDelAuto = 0;
-		String modelo = "1"; 
-		String color = "rojo";
-		Integer velocidadMaxima = 100;
-		
-		Auto auto = new Auto(velocidadActualDelAuto, modelo, color, velocidadMaxima);
 		
 		auto.acelerar();
 		
@@ -66,12 +104,7 @@ public class VehiculoTest {
 		
 		// Preparacion
 		
-		Integer velocidadActualDelAuto = 100;
-		String modelo = "1"; 
-		String color = "rojo";
-		Integer velocidadMaxima = 100;
-		
-		Auto auto = new Auto(velocidadActualDelAuto, modelo, color, velocidadMaxima);
+		auto.setVelocidadActual(VELOCIDAD_MAXIMA_AUTO);
 	
 		// Ejecucion
 
@@ -88,12 +121,7 @@ public class VehiculoTest {
 		
 		// Preparacion
 		
-		Integer velocidadActualDelAuto = 0;
-		String modelo = "1"; 
-		String color = "rojo";
-		Integer velocidadMaxima = 100;
-		
-		Auto auto = new Auto(velocidadActualDelAuto, modelo, color, velocidadMaxima);
+		auto.setVelocidadActual(VELOCIDAD_DE_VEHICULO_QUIETO);
 		
 		// Ejecucion
 
@@ -111,11 +139,8 @@ public class VehiculoTest {
 		// Preparacion
 		
 		Integer velocidadActualDelAuto = 10;
-		String modelo = "1"; 
-		String color = "rojo";
-		Integer velocidadMaxima = 1000;
 		
-		Auto auto = new Auto(velocidadActualDelAuto, modelo, color, velocidadMaxima);
+		auto.setVelocidadActual(velocidadActualDelAuto);
 		
 		// Ejecucion
 
@@ -132,12 +157,7 @@ public class VehiculoTest {
 		
 		// Preparacion
 		
-		Integer velocidadActualDelAuto = 100;
-		String modelo = "1"; 
-		String color = "rojo";
-		Integer velocidadMaxima = 100;
-		
-		Auto auto = new Auto(velocidadActualDelAuto, modelo, color, velocidadMaxima);
+		auto.setVelocidadActual(VELOCIDAD_MAXIMA_AUTO);
 		
 		auto.frenar();
 		
@@ -161,12 +181,7 @@ public class VehiculoTest {
 		
 		// Preparacion
 		
-		Integer velocidadActualDelAvion = 0;
-		String modelo = "1"; 
-		String color = "rojo";
-		Integer velocidadMaxima = 100;
-		
-		Avion avion = new Avion(velocidadActualDelAvion, modelo, color, velocidadMaxima);
+		// echa en el init();
 		
 		// Ejecucion
 
@@ -182,13 +197,6 @@ public class VehiculoTest {
 	public void dadoQueExisteUnVehiculoQueEsUnAvionCuandoLePidoAcelerarEntoncesSuVelocidadAumentaA100() {
 		
 		// Preparacion
-		
-		Integer velocidadActualDelAvion = 0;
-		String modelo = "1"; 
-		String color = "rojo";
-		Integer velocidadMaxima = 1000;
-		
-		Avion avion = new Avion(velocidadActualDelAvion, modelo, color, velocidadMaxima);
 		
 		avion.acelerar();
 		
@@ -211,12 +219,7 @@ public class VehiculoTest {
 		
 		// Preparacion
 		
-		Integer velocidadActualDelAvion = 1000;
-		String modelo = "1"; 
-		String color = "rojo";
-		Integer velocidadMaxima = 1000;
-		
-		Avion avion = new Avion(velocidadActualDelAvion, modelo, color, velocidadMaxima);
+		avion.setVelocidadActual(VELOCIDAD_MAXIMA_AVION);
 	
 		// Ejecucion
 
@@ -234,12 +237,7 @@ public class VehiculoTest {
 		
 		// Preparacion
 		
-		Integer velocidadActualDelAvion = 0;
-		String modelo = "1"; 
-		String color = "rojo";
-		Integer velocidadMaxima = 1000;
-		
-		Avion avion = new Avion(velocidadActualDelAvion, modelo, color, velocidadMaxima);
+		avion.setVelocidadActual(VELOCIDAD_DE_VEHICULO_QUIETO);
 		
 		// Ejecucion
 
@@ -256,12 +254,9 @@ public class VehiculoTest {
 		
 		// Preparacion
 		
-		Integer velocidadActualDelAvion = 10;
-		String modelo = "1"; 
-		String color = "rojo";
-		Integer velocidadMaxima = 1000;
+		Integer velocidadActualDelAvion = 100;
 		
-		Avion avion = new Avion(velocidadActualDelAvion, modelo, color, velocidadMaxima);
+		avion.setVelocidadActual(velocidadActualDelAvion);
 		
 		// Ejecucion
 
@@ -279,12 +274,9 @@ public class VehiculoTest {
 		// Preparacion
 		
 		Integer velocidadActualDelAvion = 200;
-		String modelo = "1"; 
-		String color = "rojo";
-		Integer velocidadMaxima = 1000;
 		
-		Avion avion = new Avion(velocidadActualDelAvion, modelo, color, velocidadMaxima);
-		
+		avion.setVelocidadActual(velocidadActualDelAvion);
+	
 		avion.frenar();
 		
 		// Ejecucion
@@ -307,12 +299,7 @@ public class VehiculoTest {
 		
 		// Preparacion
 		
-		Integer velocidadActualDeLaMotoDeAgua = 0;
-		String modelo = "1"; 
-		String color = "rojo";
-		Integer velocidadMaxima = 10;
-		
-		MotoDeAgua motoDeAgua = new MotoDeAgua(velocidadActualDeLaMotoDeAgua, modelo, color, velocidadMaxima);
+		// Hecha en el init();
 		
 		// Ejecucion
 
@@ -328,13 +315,6 @@ public class VehiculoTest {
 	public void dadoQueExisteUnVehiculoQueEsUnaMotoDeAguaCuandoLePidoAcelerarEntoncesSuVelocidadAumentaA1() {
 		
 		// Preparacion
-		
-		Integer velocidadActualDeLaMotoDeAgua = 0;
-		String modelo = "1"; 
-		String color = "rojo";
-		Integer velocidadMaxima = 10;
-		
-		MotoDeAgua motoDeAgua = new MotoDeAgua(velocidadActualDeLaMotoDeAgua, modelo, color, velocidadMaxima);
 		
 		motoDeAgua.acelerar();
 		
@@ -357,13 +337,8 @@ public class VehiculoTest {
 		
 		// Preparacion
 		
-		Integer velocidadActualDeLaMotoDeAgua = 10;
-		String modelo = "1"; 
-		String color = "rojo";
-		Integer velocidadMaxima = 10;
+		motoDeAgua.setVelocidadActual(VELOCIDAD_MAXIMA_MOTO_DE_AGUA);
 		
-		MotoDeAgua motoDeAgua = new MotoDeAgua(velocidadActualDeLaMotoDeAgua, modelo, color, velocidadMaxima);
-	
 		// Ejecucion
 
 		Boolean pudoAcelerar = motoDeAgua.acelerar();
@@ -380,12 +355,7 @@ public class VehiculoTest {
 		
 		// Preparacion
 		
-		Integer velocidadActualDeLaMotoDeAgua = 0;
-		String modelo = "1"; 
-		String color = "rojo";
-		Integer velocidadMaxima = 10;
-		
-		MotoDeAgua motoDeAgua = new MotoDeAgua(velocidadActualDeLaMotoDeAgua, modelo, color, velocidadMaxima);
+		motoDeAgua.setVelocidadActual(VELOCIDAD_DE_VEHICULO_QUIETO);
 		
 		// Ejecucion
 
@@ -402,12 +372,9 @@ public class VehiculoTest {
 		
 		// Preparacion
 		
-		Integer velocidadActualDeLaMotoDeAgua = 10;
-		String modelo = "1"; 
-		String color = "rojo";
-		Integer velocidadMaxima = 10;
+		Integer velocidadActualDeLaMotoDeAgua = 1;
 		
-		MotoDeAgua motoDeAgua = new MotoDeAgua(velocidadActualDeLaMotoDeAgua, modelo, color, velocidadMaxima);
+		motoDeAgua.setVelocidadActual(velocidadActualDeLaMotoDeAgua);
 		
 		// Ejecucion
 
@@ -425,11 +392,8 @@ public class VehiculoTest {
 		// Preparacion
 		
 		Integer velocidadActualDeLaMotoDeAgua = 2;
-		String modelo = "1"; 
-		String color = "rojo";
-		Integer velocidadMaxima = 10;
 		
-		MotoDeAgua motoDeAgua = new MotoDeAgua(velocidadActualDeLaMotoDeAgua, modelo, color, velocidadMaxima);
+		motoDeAgua.setVelocidadActual(velocidadActualDeLaMotoDeAgua);
 		
 		motoDeAgua.frenar();
 		
