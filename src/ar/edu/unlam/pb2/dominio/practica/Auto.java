@@ -2,8 +2,8 @@ package ar.edu.unlam.pb2.dominio.practica;
 
 public class Auto extends Vehiculo{
 
-	private static final int ACELERACION_AUTO = 10;
-	private static final int FRENADO_AUTO = 10;
+	private static final Integer ACELERACION_AUTO = 10;
+	private static final Integer FRENADO_AUTO = 10;
 
 	public Auto(Integer velocidadActual, String modelo, String color, Integer velocidadMaxima) {
 		super(velocidadActual, modelo, color, velocidadMaxima);
